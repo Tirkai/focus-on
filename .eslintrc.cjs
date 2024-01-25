@@ -32,6 +32,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:react/jsx-runtime',
   ],
   overrides: [
     {
@@ -51,6 +52,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'react-refresh'],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'jest/valid-title': 'off',
