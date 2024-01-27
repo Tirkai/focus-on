@@ -60,6 +60,7 @@ module.exports = {
     'no-alert': 'off',
     'no-restricted-globals': 'off',
     'no-plusplus': 'off',
+    'no-useless-catch': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'no-restricted-syntax': ['off', 'ForOfStatement'],
