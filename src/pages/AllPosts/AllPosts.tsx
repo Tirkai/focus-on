@@ -1,7 +1,5 @@
 const AllPosts = () => {
-  return (
-    <div>AllPosts</div>
-  )
-}
+  return <div>AllPosts</div>;
+};
 
-export default AllPosts
+export default AllPosts;
