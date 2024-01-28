@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import databaseService from '../appwrite/databaseService';
+import databaseService from '../../appwrite/databaseService';
 interface IPostCardProps {
   $id: string;
   title: string;

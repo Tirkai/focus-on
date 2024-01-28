@@ -1,10 +1,10 @@
 import appwriteConfig from '../configs/appwrite.config';
 import { Client, Account, ID, Models } from 'appwrite';
 
-interface AccountData {
+export interface IUser {
   email: string;
   password: string;
-  name?: string;
+  name: string;
 }
 
 export class AuthService {
@@ -23,7 +23,7 @@ export class AuthService {
     email,
     password,
     name,
-  }: AccountData): Promise<Models.Session | null> {
+  }: IUser): Promise<Models.Session | null> {
     try {
       const userAccount = await this.account.create(
         ID.unique(),
@@ -40,7 +40,7 @@ export class AuthService {
       throw error;
     }
   }
-  async login({ email, password }: Pick<AccountData, 'email' | 'password'>) {
+  async login({ email, password }: Pick<IUser, 'email' | 'password'>) {
     try {
       return await this.account.createEmailSession(email, password);
     } catch (error) {

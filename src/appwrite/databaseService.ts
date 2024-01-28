@@ -1,16 +1,26 @@
 import { Client, Databases, Storage, Query, ID, Models } from 'appwrite';
 import appwriteConfig from '../configs/appwrite.config';
 
-interface PostData {
+export interface IPostData {
   title: string;
   slug: string;
   content: string;
   imagePreview: string;
   status: string;
+  $id: string;
   userId: string;
 }
 
-interface UpdatePostData {
+// interface IPost {
+//   title: string;
+//   slug: string;
+//   content: string;
+//   imagePreview: string;
+//   status: string;
+//   userId: string;
+// }
+
+export interface IUpdatePostData {
   title?: string;
   content?: string;
   imagePreview?: string;
@@ -68,7 +78,7 @@ export class DatabaseService {
     }
   }
 
-  async createPost(data: PostData): Promise<Models.Document | false> {
+  async createPost(data: IPostData): Promise<Models.Document | false> {
     try {
       return await this.databases.createDocument(
         appwriteConfig.appwriteDatabaseId,
@@ -84,7 +94,7 @@ export class DatabaseService {
 
   async updatePost(
     slug: string,
-    data: UpdatePostData,
+    data: IUpdatePostData,
   ): Promise<Models.Document | false> {
     try {
       return await this.databases.updateDocument(
