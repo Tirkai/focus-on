@@ -1,32 +1,32 @@
-import { FC, useState, useEffect } from 'react'
-import Container from "../../components/Container/Container"
-import PostCard from "../../components/PostCard/PostCard"
-import databaseService from "../../appwrite/databaseService"
+import { FC, useState, useEffect } from 'react';
+import Container from '../../components/Container/Container';
+import PostCard from '../../components/PostCard/PostCard';
+import databaseService from '../../appwrite/databaseService';
 
-const Home:FC = () => {
-  const [posts, setPosts] = useState([])
+const Home: FC = () => {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     databaseService.getPosts([]).then((posts) => {
       if (posts) {
-        setPosts(posts.documents)
+        setPosts(posts.documents);
       }
-    })
-  }, [])
+    });
+  }, []);
   if (posts.length === 0) {
     return (
-      <div className='w-full py-8'>
-      <Container>
-        <div className="flex flex-wrap">
-          <h1>Login to read posts</h1>
-        </div>
-      </Container>
-    </div>
-    )
+      <div className="w-full py-8">
+        <Container>
+          <div className="flex flex-wrap">
+            <h1>Login to read posts</h1>
+          </div>
+        </Container>
+      </div>
+    );
   }
 
   return (
-    <div className='w-full py-8'>
+    <div className="w-full py-8">
       <Container>
         <div className="flex flex-wrap">
           {posts.map((post) => (
@@ -37,7 +37,7 @@ const Home:FC = () => {
         </div>
       </Container>
     </div>
-  )
+  );
 };
 
 export default Home;

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Controller, Control, FieldValues } from 'react-hook-form';
 import { Editor } from '@tinymce/tinymce-react';
+import tinyMCEConfig from '../../configs/tinyMce.config';
 
 interface IPostEditorProps {
   name?: string;
@@ -24,7 +25,7 @@ const PostEditor: FC<IPostEditorProps> = ({
         render={({ field: { onChange } }) => (
           <Editor
             initialValue={defaultValue}
-            apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
+            apiKey={tinyMCEConfig.apiKey}
             init={{
               branding: false,
               height: 500,

@@ -1,12 +1,12 @@
-import { FC } from "react"
-import { Signup as SignupComponent } from "../../components/index"
+import { FC } from 'react';
+import { Signup as SignupComponent } from '../../components/index';
 
-const Signup:FC = () => {
+const Signup: FC = () => {
   return (
-    <div className='py-8'>
+    <div className="py-8">
       <SignupComponent />
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Signup
+export default Signup;

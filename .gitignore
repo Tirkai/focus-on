@@ -108,3 +108,4 @@ dist
 storybook-static
 stories
 .env
+.DS_Store
