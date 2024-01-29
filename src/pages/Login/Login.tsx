@@ -1,5 +1,11 @@
-const Login = () => {
-  return <div>Login</div>;
-};
+import {Login as LoginComponent} from "../../components/index"
 
-export default Login;
+function Login() {
+  return (
+    <div className='py-8'>
+      <LoginComponent />
+    </div>
+  )
+}
+
+export default Login

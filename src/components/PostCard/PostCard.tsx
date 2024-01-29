@@ -4,16 +4,16 @@ import databaseService from '../../appwrite/databaseService';
 interface IPostCardProps {
   $id: string;
   title: string;
-  imagePreview: string;
+  featuredImage: string;
 }
 
-const PostCard: FC<IPostCardProps> = ({ $id, title, imagePreview }) => {
+const PostCard: FC<IPostCardProps> = ({ $id, title, featuredImage }) => {
   return (
     <Link to={`/post/${$id}`}>
       <article className="w-full bg-gray-100 rounded-xl p-4">
         <div className="w-full justify-center mb-4">
           <img
-            src={databaseService.getFilePreview(imagePreview)}
+            src={databaseService.getFilePreview(featuredImage)}
             alt={title}
             className="rounded-xl"
           />

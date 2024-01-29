@@ -9,7 +9,7 @@ import store from './store/store';
 import Home from './pages/Home/Home.tsx';
 import Login from './pages/Login/Login.tsx';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.tsx';
-import SignUp from './pages/SignUp/SignUp.tsx';
+import SignUp from './pages/Signup/Signup.tsx';
 import AllPosts from './pages/AllPosts/AllPosts.tsx';
 import AddPost from './pages/AddPost/AddPost.tsx';
 import EditPost from './pages/EditPost/EditPost.tsx';

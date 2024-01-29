@@ -1,5 +1,10 @@
-const SignUp = () => {
-  return <div>SignUp</div>;
-};
+import { Signup as SignupComponent } from "../../components/index"
+function Signup() {
+  return (
+    <div className='py-8'>
+      <SignupComponent />
+      </div>
+  )
+}
 
-export default SignUp;
+export default Signup

@@ -5,9 +5,9 @@ export interface IPostData {
   title: string;
   slug: string;
   content: string;
-  imagePreview: string;
+  featuredImage: string;
   status: string;
-  $id: string;
+  // $id: string;
   userId: string;
 }
 
@@ -15,7 +15,7 @@ export interface IPostData {
 //   title: string;
 //   slug: string;
 //   content: string;
-//   imagePreview: string;
+//   featuredImage: string;
 //   status: string;
 //   userId: string;
 // }
@@ -23,7 +23,7 @@ export interface IPostData {
 export interface IUpdatePostData {
   title?: string;
   content?: string;
-  imagePreview?: string;
+  featuredImage?: string;
   status?: string;
 }
 
@@ -53,15 +53,6 @@ export class DatabaseService {
       return false;
     }
   }
-
-  // async getPosts(queries: Query[] = [Query.equal('status', 'active')]): Promise<Models.DocumentList | false> {
-  //   try {
-  //     return await this.databases.listDocuments(appwriteConfig.appwriteDatabaseId, appwriteConfig.appwriteCollectionId, queries);
-  //   } catch (error) {
-  //     console.log('Appwrite service :: getPosts() :: ', error);
-  //     return false;
-  //   }
-  // }
 
   async getPosts(
     queries: string[] = [Query.equal('status', 'active').toString()],
