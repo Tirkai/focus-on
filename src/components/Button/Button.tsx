@@ -6,6 +6,7 @@ interface IButtonProps {
   bgColor?: string;
   textColor?: string;
   className?: '' | string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: FC<IButtonProps> = ({

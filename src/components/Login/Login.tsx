@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { login as authLogin } from '../../store/slices/authSlice';
 import authService from '../../appwrite/authService';
@@ -9,13 +9,18 @@ import Button from '../Button/Button';
 import Input from '../Input/Input';
 import Logo from '../Logo/Logo';
 
+interface ILoginData {
+  email: string;
+  password: string;
+}
+
 const Login: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<ILoginData>();
   const [error, setError] = useState('');
 
-  const login = async (data) => {
+  const login: SubmitHandler<ILoginData> = async (data) => {
     setError('');
     try {
       const session = await authService.login(data);
