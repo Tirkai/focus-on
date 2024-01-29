@@ -13,6 +13,8 @@ import AllPosts from './pages/AllPosts/AllPosts.tsx';
 import AddPost from './pages/AddPost/AddPost.tsx';
 import EditPost from './pages/EditPost/EditPost.tsx';
 import Post from './pages/Post/Post.tsx';
+import { AppwriteProvider } from 'react-appwrite';
+import { appwriteClient } from './appwrite/appwrite-connector.ts';
 
 const router = createBrowserRouter([
   {
@@ -76,9 +78,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  <AppwriteProvider client={appwriteClient}>
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  </React.StrictMode>,
+  </AppwriteProvider>,
 );

@@ -1,5 +1,6 @@
 import { Client, Databases, Storage, Query, ID, Models } from 'appwrite';
 import appwriteConfig from '../configs/appwrite.config';
+import { appwriteClient } from './appwrite-connector';
 
 export interface IPostData {
   title: string;
@@ -24,10 +25,12 @@ export class DatabaseService {
   private bucket: Storage;
 
   constructor() {
-    this.client = new Client();
-    this.client
-      .setEndpoint(appwriteConfig.appwriteUrl)
-      .setProject(appwriteConfig.appwriteProjectId);
+    // this.client = new Client();
+    // this.client
+    //   .setEndpoint(appwriteConfig.appwriteUrl)
+    //   .setProject(appwriteConfig.appwriteProjectId);
+    this.client = appwriteClient;
+
     this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
   }

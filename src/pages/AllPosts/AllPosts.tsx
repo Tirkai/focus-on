@@ -7,6 +7,8 @@ import databaseService, { IPostData } from '../../appwrite/databaseService';
 const AllPosts: FC = () => {
   const [posts, setPosts] = useState<IPostData[]>([]);
 
+  
+
   useEffect(() => {
     databaseService.getPosts([]).then((posts) => {
       if (posts) {

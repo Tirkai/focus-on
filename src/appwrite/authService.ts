@@ -1,5 +1,6 @@
-import appwriteConfig from '../configs/appwrite.config';
+
 import { Client, Account, ID, Models } from 'appwrite';
+import { appwriteClient } from './appwrite-connector';
 
 export interface IUser {
   email: string;
@@ -12,10 +13,11 @@ export class AuthService {
   private account: Account;
 
   constructor() {
-    this.client = new Client();
-    this.client
-      .setEndpoint(appwriteConfig.appwriteUrl)
-      .setProject(appwriteConfig.appwriteProjectId);
+    // this.client = new Client();
+    this.client = appwriteClient;
+    // this.client
+    //   .setEndpoint(appwriteConfig.appwriteUrl)
+    //   .setProject(appwriteConfig.appwriteProjectId);
     this.account = new Account(this.client);
   }
 
