@@ -11,15 +11,6 @@ export interface IPostData {
   userId: string;
 }
 
-// interface IPost {
-//   title: string;
-//   slug: string;
-//   content: string;
-//   featuredImage: string;
-//   status: string;
-//   userId: string;
-// }
-
 export interface IUpdatePostData {
   title?: string;
   content?: string;
