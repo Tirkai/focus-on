@@ -5,7 +5,6 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
-
 import Home from './pages/Home/Home.tsx';
 import Login from './pages/Login/Login.tsx';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.tsx';

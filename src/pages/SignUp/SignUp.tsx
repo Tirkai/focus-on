@@ -1,5 +1,7 @@
+import { FC } from "react"
 import { Signup as SignupComponent } from "../../components/index"
-function Signup() {
+
+const Signup:FC = () => {
   return (
     <div className='py-8'>
       <SignupComponent />

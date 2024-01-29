@@ -24,9 +24,9 @@ const Login: FC = () => {
                 if (userData) dispatch(authLogin({userData}))
                 navigate("/")
             }
-        } catch (error) {
-            setError(error.message)
-        }
+          } catch (err) {
+            console.log((err as Error).message);
+          }
     }
 
     return (

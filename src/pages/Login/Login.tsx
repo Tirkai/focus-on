@@ -1,6 +1,7 @@
+import { FC } from "react"
 import {Login as LoginComponent} from "../../components/index"
 
-function Login() {
+const Login:FC = () => {
   return (
     <div className='py-8'>
       <LoginComponent />

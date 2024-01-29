@@ -1,12 +1,12 @@
-import {useEffect, useState} from 'react'
+import { FC, useEffect, useState} from 'react'
 import { Link, useNavigate, useParams} from "react-router-dom"
-import appwriteService from "../appwrite/config"
-import Button from "../components/Button"
-import Container from "../components/container/Container"
-import parse from "html-react-parser"
 import {useSelector } from "react-redux"
+import Button from '../../components/Button/Button'
+import Container from '../../components/Container/Container'
+import parse from "html-react-parser"
+import databaseService from '../../appwrite/databaseService'
 
-const Post = () => {
+const Post:FC = () => {
   const [post, setPost] = useState(null)
   const {slug} = useParams()
   const navigate = useNavigate()
@@ -15,7 +15,7 @@ const Post = () => {
 
   useEffect(() => {
     if (slug) {
-      appwriteService.getPost(slug).then((post) => {
+      databaseService.getPost(slug).then((post) => {
         if (post) {
           setPost(post)
         }else {
@@ -26,9 +26,9 @@ const Post = () => {
   }, [slug, navigate])
 
   const deletePost = () => {
-    appwriteService.deletePost(post.$id).then((status) => {
+    databaseService.deletePost(post.$id).then((status) => {
       if (status) {
-        appwriteService.deleteFile(post.featuredImage);
+        databaseService.deleteFile(post.featuredImage);
         navigate("/")
       }
     })
@@ -37,7 +37,7 @@ const Post = () => {
     <div className="py-8">
       <Container>
         <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
-          <img src={appwriteService.getFilePreview(post.featuredImage)} alt={post.title} className='rounded-xl' />
+          <img src={databaseService.getFilePreview(post.featuredImage)} alt={post.title} className='rounded-xl' />
           { isAuthor && (
             <div className="absolute-right-6 top-6">
               <Link to={`/edit-post/${post.$id}`}>

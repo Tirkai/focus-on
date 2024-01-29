@@ -24,9 +24,9 @@ const Signup:FC = () => {
                 if (userData) dispatch(login({userData}))
                 navigate("/")
             }
-        } catch (error) {
-            setError(error.message)
-        }
+        } catch (err) {
+            console.log((err as Error).message);
+          }
     }
   return (
     <div className="flex items-center justify-center">
